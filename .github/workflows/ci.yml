@@ -1,0 +1,65 @@
+# CI/CD de EcoGame: análisis estático -> pruebas unitarias -> integración -> paquete Beta.
+name: EcoGame CI
+
+on:
+  push:
+    branches: [main, develop]
+    tags: ['v*']
+  pull_request:
+
+permissions:
+  contents: write  # necesario solo para publicar la Release de la Beta
+
+jobs:
+  calidad:
+    name: Análisis estático y pruebas unitarias
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install ruff
+      - name: Análisis estático (ruff)
+        run: ruff check tools tests
+      - name: Pruebas unitarias
+        run: python -m unittest discover -s tests -v
+
+  integracion:
+    name: Pruebas de integración sobre el motor exportado
+    needs: calidad
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install playwright && playwright install --with-deps chromium
+      - name: 38 pruebas de aceptación (docs/qa.html)
+        run: python tests/integracion_qa.py
+      - name: Guardar reporte y capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-pruebas
+          path: |
+            docs/pruebas-resultados.json
+            docs/evidence/
+
+  beta:
+    name: Empaquetar versión Beta
+    needs: integracion
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Armar paquete
+        run: |
+          mkdir -p dist
+          zip -r dist/EcoGame-beta.zip export/html5 EcoGame.capx Jugar.cmd tools/serve_game.py \
+            docs/MANUAL-USUARIO.md docs/BETA-REPORTE.md README.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EcoGame-beta
+          path: dist/EcoGame-beta.zip
+      - name: Publicar Release (solo con etiqueta v*)
+        if: startsWith(github.ref, 'refs/tags/v')
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: gh release create "$GITHUB_REF_NAME" dist/EcoGame-beta.zip --prerelease --title "EcoGame $GITHUB_REF_NAME" --notes-file docs/BETA-REPORTE.md

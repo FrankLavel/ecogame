@@ -1,0 +1,5 @@
+# Análisis estático: errores reales (sintaxis, nombres indefinidos, imports sin uso).
+# El estilo compacto de los generadores (varias sentencias por línea) es intencional.
+[lint]
+select = ["E9", "F"]
+ignore = ["E401", "E701", "E702"]

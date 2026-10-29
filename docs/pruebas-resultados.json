@@ -1,0 +1,161 @@
+{
+  "game": "EcoGame 4.0 · Pato furioso",
+  "engine": "Construct 2 r213",
+  "date": "2026-10-29T02:36:53.121Z",
+  "passed": 38,
+  "total": 38,
+  "results": [
+    {
+      "name": "Inicio: 12 residuos, 3 vidas, 180 segundos y puntaje cero",
+      "status": "PASS"
+    },
+    {
+      "name": "Comenzar cambia al estado de juego",
+      "status": "PASS"
+    },
+    {
+      "name": "Sprites con 16 cuadros de caminata, 6 poses del jefe y 8 cuadros de agua",
+      "status": "PASS"
+    },
+    {
+      "name": "El teclado selecciona animación de caminar y reposo en las cuatro direcciones",
+      "status": "PASS"
+    },
+    {
+      "name": "Colisión recoge un residuo y conserva categoría y nombre",
+      "status": "PASS"
+    },
+    {
+      "name": "La mochila muestra el icono recogido y la flecha señala ENVASES",
+      "status": "PASS"
+    },
+    {
+      "name": "La mochila admite un único residuo",
+      "status": "PASS"
+    },
+    {
+      "name": "Entregar lejos de los contenedores no resta vidas ni suma puntos",
+      "status": "PASS"
+    },
+    {
+      "name": "Contenedor incorrecto resta una vida, conserva residuo e indica ENVASES",
+      "status": "PASS"
+    },
+    {
+      "name": "Contenedor correcto suma 100 puntos y carga una unidad de defensa",
+      "status": "PASS"
+    },
+    {
+      "name": "Tras entregar, se ocultan el icono de mochila y la flecha",
+      "status": "PASS"
+    },
+    {
+      "name": "El agua y las hojas se animan durante la partida",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa congela el reloj, el personaje y las animaciones ambientales",
+      "status": "PASS"
+    },
+    {
+      "name": "La guía conserva la pausa y permite continuar",
+      "status": "PASS"
+    },
+    {
+      "name": "Silenciar y reactivar actualiza el estado",
+      "status": "PASS"
+    },
+    {
+      "name": "Tres errores activan derrota y bloquean nuevas penalizaciones",
+      "status": "PASS"
+    },
+    {
+      "name": "Reintentar restaura residuos, reloj, vidas, mochila y puntaje",
+      "status": "PASS"
+    },
+    {
+      "name": "Dos residuos superpuestos recogen solo uno y dejan el otro en el parque",
+      "status": "PASS"
+    },
+    {
+      "name": "Agotar el tiempo activa derrota",
+      "status": "PASS"
+    },
+    {
+      "name": "12 recogidas y entregas desbloquean al jefe sin conceder victoria prematura",
+      "status": "PASS"
+    },
+    {
+      "name": "Confirmar la introducción inicia el combate sin reiniciar el reciclaje",
+      "status": "PASS"
+    },
+    {
+      "name": "La zona roja es visible durante el aviso y se oculta en la abertura",
+      "status": "PASS"
+    },
+    {
+      "name": "Disparar cuando el jefe está protegido no gasta cargas",
+      "status": "PASS"
+    },
+    {
+      "name": "Un contenedor de color incorrecto tampoco gasta cargas",
+      "status": "PASS"
+    },
+    {
+      "name": "Un disparo válido crea un proyectil y consume una sola carga",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa detiene un proyectil en vuelo, los ataques y el tiempo",
+      "status": "PASS"
+    },
+    {
+      "name": "Zona de impacto resta una vida y da invulnerabilidad temporal",
+      "status": "PASS"
+    },
+    {
+      "name": "Contacto con Don Mugrón también causa daño",
+      "status": "PASS"
+    },
+    {
+      "name": "El tercer acierto activa una fase de ataques más rápida",
+      "status": "PASS"
+    },
+    {
+      "name": "Latas y tierra visibles recorren la pantalla; tres proyectiles en furia",
+      "status": "PASS"
+    },
+    {
+      "name": "La embestida solo aparece a media vida y mueve al pato por su trayectoria",
+      "status": "PASS"
+    },
+    {
+      "name": "La pausa congela también la basura enemiga",
+      "status": "PASS"
+    },
+    {
+      "name": "Durante la embestida no se gastan cargas",
+      "status": "PASS"
+    },
+    {
+      "name": "La barra del jefe refleja visualmente su media vida",
+      "status": "PASS"
+    },
+    {
+      "name": "Seis impactos de los tres colores derrotan al jefe",
+      "status": "PASS"
+    },
+    {
+      "name": "Victoria congela el reloj y permite reiniciar las dos fases",
+      "status": "PASS"
+    },
+    {
+      "name": "El tiempo del combate también puede agotarse",
+      "status": "PASS"
+    },
+    {
+      "name": "Recursos de audio disponibles: dos músicas y ocho efectos",
+      "status": "PASS"
+    }
+  ]
+}
